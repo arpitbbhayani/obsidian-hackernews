@@ -107,10 +107,10 @@ export default class APIManager {
             return Promise.reject(error);
         }
 
-        const itemId = itemIds[Math.floor(Math.random() * itemIds.slice(0, 15).length)]
+        const itemId = itemIds[Math.floor(Math.random() * itemIds.slice(0, 25).length)]
         const itemResponse = await fetch(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json?print=pretty`);
         const hnItem = (await itemResponse.json()) as HNItem
-        
+
         return hnItem;
     }
 

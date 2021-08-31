@@ -12,7 +12,7 @@
 
   export let query: string = "";
   let promise: Promise<DictionaryWord>;
-  let promiseTopHN: Promise<HNItem>;
+  let dataHN: HNItem;
 
   function search() {
     if (query.trim()) {
@@ -20,8 +20,8 @@
     }
   }
 
-  function fetchTopHN() {
-    promiseTopHN = manager.requestTopHN();
+  async function fetchTopHN() {
+    dataHN = await manager.requestTopHN();
   }
 
   function languageModal() {
@@ -44,22 +44,16 @@
 </script>
 
 <div class="main">
-  {#if promiseTopHN}
-    {#await promiseTopHN}
-      <div class="center" />
-    {:then data}
-      <div class="results">
-        <div class="container">
-          <a href="{ data.url }" target="_blank" class="hn-link">{ data.title }</a>
-          <br />
-          <p class="hn-read">
-            <a href="{ data.url }" target="_blank">Read more →</a>
-          </p>
-        </div>
+  {#if dataHN}
+    <div class="results">
+      <div class="container">
+        <a href="{ dataHN.url }" target="_blank" class="hn-link">{ dataHN.title }</a>
+        <br />
+        <p class="hn-read">
+          <a href="{ dataHN.url }" target="_blank">Read more →</a>
+        </p>
       </div>
-    {:catch error}
-      <ErrorComponent {error} />
-    {/await}
+    </div>
   {/if}
 </div>
 
