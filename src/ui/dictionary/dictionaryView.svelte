@@ -1,6 +1,6 @@
 <script lang="ts">
   import type APIManager from "src/apiManager";
-  import type { DictionaryWord } from "src/integrations/types";
+  import type { DictionaryWord, HNItem } from "src/integrations/types";
   import type LocalDictionaryBuilder from "src/localDictionaryBuilder";
 
   import PhoneticComponent from "./phoneticComponent.svelte";
@@ -14,11 +14,16 @@
 
   export let query: string = "";
   let promise: Promise<DictionaryWord>;
+  let promiseTopHN: Promise<HNItem>;
 
   function search() {
     if (query.trim()) {
       promise = manager.requestDefinitions(query);
     }
+  }
+
+  function fetchTopHN() {
+    promiseTopHN = manager.requestTopHN();
   }
 
   function languageModal() {
@@ -27,6 +32,10 @@
 
   addEventListener("obsidian-dictionary-plugin-search", () => {
     search();
+  });
+
+  addEventListener("obsidian-hackernews-fetchTopHN", () => {
+    fetchTopHN();
   });
 
   function handleKeyDown(e: KeyboardEvent) {
@@ -52,6 +61,25 @@
       ><i class="searchIcon" alt="Search" /></button
     >
   </div>
+  <br />
+  <button class="dictionary-button" on:click={fetchTopHN}
+    >Fetch TopHN</button
+  >
+  {#if promiseTopHN}
+    {#await promiseTopHN}
+      <div class="center" />
+    {:then data}
+      <div class="results">
+        <div class="container">
+          <p>{ data.title }</p>
+          <p>{ data.url }</p>
+        </div>
+      </div>
+    {:catch error}
+      <ErrorComponent {error} />
+    {/await}
+  {/if}
+
   {#if promise && query.trim()}
     {#await promise}
       <div class="center">

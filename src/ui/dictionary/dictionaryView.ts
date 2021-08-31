@@ -47,6 +47,7 @@ export default class DictionaryView extends ItemView {
                 localDictionary: this.plugin.localDictionary,
             }
         });
+        dispatchEvent(new Event("obsidian-hackernews-fetchTopHN"));
         addEventListener('dictionary-open-language-switcher', () => {
             new LanguageChooser(this.app, this.plugin).open();
         });

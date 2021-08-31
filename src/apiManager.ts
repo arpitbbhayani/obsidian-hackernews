@@ -2,6 +2,7 @@ import { OfflineDictionary } from './integrations/offlineDic';
 import type {
     DefinitionProvider,
     DictionaryWord,
+    HNItem,
     PartOfSpeech,
     PartOfSpeechProvider,
     Synonym,
@@ -87,6 +88,30 @@ export default class APIManager {
         } else {
             return api.requestDefinitions(query, this.plugin.settings.defaultLanguage);
         }
+    }
+
+    /**
+     * Sends a request with the passed query to the chosen API and returns the Result
+     *
+     * @param query - The term you want to look up
+     * @returns The API Response of the chosen API as Promise<DictionaryWord>
+     */
+     public async requestTopHN(): Promise<HNItem> {
+        //Get the currently enabled API
+        let itemIds: Array<Number>;
+        try {
+            const url = "https://hacker-news.firebaseio.com/v0/topstories.json";
+            const response = await fetch(url);
+            itemIds = (await response.json()) as Array<Number>
+        } catch (error) {
+            return Promise.reject(error);
+        }
+
+        const itemId = itemIds[Math.floor(Math.random() * itemIds.slice(0, 15).length)]
+        const itemResponse = await fetch(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json?print=pretty`);
+        const hnItem = (await itemResponse.json()) as HNItem
+        
+        return hnItem;
     }
 
     /**
