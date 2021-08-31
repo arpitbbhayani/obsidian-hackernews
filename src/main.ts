@@ -39,6 +39,13 @@ export default class DictionaryPlugin extends Plugin {
             return new DictionaryView(leaf, this);
         });
 
+        if (this.app.workspace.getLeavesOfType(VIEW_TYPE).length == 0) {
+            await this.app.workspace.getRightLeaf(false).setViewState({
+                type: VIEW_TYPE,
+            });
+        }
+        this.app.workspace.revealLeaf(this.app.workspace.getLeavesOfType(VIEW_TYPE).first());
+
         this.addCommand({
             id: 'dictionary-open-view',
             name: t('Open Dictionary View'),
@@ -126,6 +133,9 @@ export default class DictionaryPlugin extends Plugin {
     onunload(): void {
         console.log('unloading dictionary');
         this.app.workspace.off('editor-menu', this.handleContextMenuHelper)
+        if (this.app.workspace.getLeavesOfType(VIEW_TYPE).length) {
+            this.app.workspace.getLeavesOfType(VIEW_TYPE)[0].detach();
+        }
     }
 
     handleContextMenuHelper = (menu: Menu, editor: Editor, _: MarkdownView): void => {
