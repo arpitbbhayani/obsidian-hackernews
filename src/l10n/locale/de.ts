@@ -40,7 +40,7 @@ export default {
     'View Information about the API\'s and the Plugin itself.': 'Schau dir mehr Informationen über die APIs und die Erweiterung an.',
     'More Info': 'Mehr Infos',
     'Donate': 'Spenden',
-    'If you like this Plugin, consider donating to support continued development:': 'Wenn du die Erweiterung hilfreich findest, kannst du hier etwas spenden um die weitere Entwicklung zu unterstützen:',
+    'If you found this plugin helpful, consider donating to support continued development.': 'Wenn du die Erweiterung hilfreich findest, kannst du hier etwas spenden um die weitere Entwicklung zu unterstützen:',
     'Local Dictionary Folder': 'Ordner für das Lokale Wörterbuch',
     'Specify a Folder, where all new Notes created by the Dictionary are placed. Please note that this Folder needs to already exist.': 'Gebe einen Ordner an, in dem alle vom Wörterbuch erstellten neuen Notizen abgelegt werden. Bitte beachte, dass dieser Ordner bereits vorhanden sein muss.',
     'Capitalize File Name': 'Dateinamen groß schreiben',

@@ -40,7 +40,7 @@ export default {
     'View Information about the API\'s and the Plugin itself.': 'View Information about the API\'s and the Plugin itself.',
     'More Info': 'More Info',
     'Donate': 'Donate',
-    'If you like this Plugin, consider donating to support continued development:': 'If you like this Plugin, consider donating to support continued development:',
+    'If you found this plugin helpful, consider donating to support continued development.': 'If you found this plugin helpful, consider donating to support continued development.',
     'Local Dictionary Folder': 'Local Dictionary Folder',
     'Specify a Folder, where all new Notes created by the Dictionary are placed. Please note that this Folder needs to already exist.': 'Specify a Folder, where all new Notes created by the Dictionary are placed. Please note that this Folder needs to already exist.',
     'Capitalize File Name': 'Capitalize File Name',

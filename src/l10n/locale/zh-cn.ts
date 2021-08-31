@@ -37,7 +37,7 @@ export default {
     'View Information about the API\'s and the Plugin itself.': '了解关于插件以及 API 的信息',
     'More Info': '更多信息',
     'Donate': '捐赠',
-    'If you like this Plugin, consider donating to support continued development:': '如果你喜欢该插件，可以考虑打赏支持：',
+    'If you found this plugin helpful, consider donating to support continued development.': '如果你喜欢该插件，可以考虑打赏支持：',
     'Local Dictionary Folder': '本地词典文件夹',
     'Specify a Folder, where all new Notes created by the Dictionary are placed. Please note that this Folder needs to already exist.': '指定词典创建的新笔记所存放的位置，注意文件夹需要存在',
 
