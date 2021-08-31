@@ -15,6 +15,7 @@ export interface DictionarySettings {
 	suffix: string;
 	prefix: string;
 	template: string;
+	defaultRefreshInterval: string;
 }
 
 export interface DictionaryCache {

@@ -1,6 +1,6 @@
 import type DictionaryPlugin from "src/main";
 
-import { ItemView, WorkspaceLeaf, debounce } from "obsidian";
+import { ItemView, WorkspaceLeaf } from "obsidian";
 import { VIEW_TYPE, VIEW_DISPLAY_TEXT, VIEW_ICON } from "src/_constants";
 import DictionaryComponent from "./dictionaryView.svelte";
 import LanguageChooser from "src/ui/modals/languageChooser";
@@ -9,7 +9,6 @@ export default class DictionaryView extends ItemView {
 
     plugin: DictionaryPlugin;
     private _view: DictionaryComponent;
-    clock: NodeJS.Timeout;
 
     constructor(leaf: WorkspaceLeaf, plugin: DictionaryPlugin) {
         super(leaf);
@@ -36,7 +35,6 @@ export default class DictionaryView extends ItemView {
     }
 
     onClose(): Promise<void> {
-        clearInterval(this.clock)
         this._view.$destroy();
         return super.onClose();
     }
@@ -49,9 +47,6 @@ export default class DictionaryView extends ItemView {
                 localDictionary: this.plugin.localDictionary,
             }
         });
-        this.clock = setInterval(debounce(() => {
-            dispatchEvent(new Event('obsidian-hackernews-fetchTopHN'))
-        }, 60 * 1000), 1000, true)
         addEventListener('dictionary-open-language-switcher', () => {
             new LanguageChooser(this.app, this.plugin).open();
         });

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onDestroy } from 'svelte';
   import type APIManager from "src/apiManager";
   import type { DictionaryWord, HNItem } from "src/integrations/types";
   
@@ -20,7 +21,8 @@
     }
   }
 
-  async function fetchTopHN() {
+  export async function fetchTopHN() {
+    console.log('fetching top story from HackerNews');
     dataHN = await manager.requestTopHN();
   }
 
@@ -32,15 +34,17 @@
     search();
   });
 
-  addEventListener("obsidian-hackernews-fetchTopHN", () => {
-    fetchTopHN();
-  });
+  addEventListener("obsidian-hackernews-fetchTopHN", fetchTopHN);
 
   function handleKeyDown(e: KeyboardEvent) {
     if (e.key === "Enter") {
       search();
     }
   }
+
+  onDestroy(() => {
+    removeEventListener('obsidian-hackernews-fetchTopHN', fetchTopHN)
+  })
 </script>
 
 <div class="main">

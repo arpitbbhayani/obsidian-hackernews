@@ -120,6 +120,16 @@ export default class DictionaryPlugin extends Plugin {
         // Editor mode
         // @ts-ignore
         this.registerEvent(this.app.workspace.on('editor-menu', this.handleContextMenuHelper));
+
+        let refreshInterval = parseInt(this.settings.defaultRefreshInterval)
+        if (Number.isNaN(refreshInterval) || refreshInterval <= 0) { refreshInterval = 60 }
+
+        dispatchEvent(new Event('obsidian-hackernews-fetchTopHN'))
+        this.registerInterval(window.setInterval(() => {
+            dispatchEvent(new Event('obsidian-hackernews-fetchTopHN'))
+        }, refreshInterval * 1000))
+
+        console.log('refreshInterval', refreshInterval, 'seconds');
     }
 
     onunload(): void {

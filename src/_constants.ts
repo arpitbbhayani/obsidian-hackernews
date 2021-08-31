@@ -47,6 +47,7 @@ export const DEFAULT_CACHE: DictionaryCache = {
 
 export const DEFAULT_SETTINGS: DictionarySettings = {
     defaultLanguage: "en_US",
+    defaultRefreshInterval: "60",
     shouldShowSynonymPopover: true,
     shouldShowCustomContextMenu: false,
     definitionApiName: "Free Dictionary API",
