@@ -6,7 +6,7 @@ This Plugin adds a Dictionary to the [Obsidian](https://obsidian.md) Note-Taking
 
 ## Usage
 
-Open the *Command Palette* (default: `ctrl` + `p`), search for *Open Dictionary View* and run the command. You will see that a new View appears in the right Sidebar of Obsidian. You can set your default Language in Obsidian's Settings under *Plugin Options* > *Obsidian Dictionary* > *Default Language*.
+Open the *Command Palette* (default: `ctrl` + `p`), search for *Open HackerNews* and run the command. You will see that a new View appears in the right Sidebar of Obsidian. You can set your default Language in Obsidian's Settings under *Plugin Options* > *Obsidian Dictionary* > *Default Language*.
 
 ## Supported Languages
 

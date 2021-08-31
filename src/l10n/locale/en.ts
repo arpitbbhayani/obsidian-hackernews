@@ -2,11 +2,11 @@
 
 export default {
     //main.ts
-    'Open Dictionary View': 'Open Dictionary View',
+    'Open HackerNews': 'Open HackerNews',
     'Open Language Switcher': 'Open Language Switcher',
 
     //_constants.ts
-    'Dictionary': 'Dictionary',
+    'HackerNews': 'HackerNews',
 
     //customContextMenu.ts
     'Cut': 'Cut',

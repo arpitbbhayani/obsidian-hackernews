@@ -2,10 +2,10 @@
 
 export default {
     //main.ts
-    'Open Dictionary View': '打开查词面板',
+    'Open HackerNews': '打开查词面板',
 
     //_constants.ts
-    'Dictionary': '词典',
+    'HackerNews': '词典',
 
     //customContextMenu.ts
     'Cut': '剪切',

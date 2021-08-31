@@ -47,8 +47,8 @@ export default class DictionaryPlugin extends Plugin {
         this.app.workspace.revealLeaf(this.app.workspace.getLeavesOfType(VIEW_TYPE).first());
 
         this.addCommand({
-            id: 'dictionary-open-view',
-            name: t('Open Dictionary View'),
+            id: 'hackernews-open-view',
+            name: t('Open HackerNews'),
             callback: async () => {
                 if (this.app.workspace.getLeavesOfType(VIEW_TYPE).length == 0) {
                     await this.app.workspace.getRightLeaf(false).setViewState({
@@ -56,14 +56,6 @@ export default class DictionaryPlugin extends Plugin {
                     });
                 }
                 this.app.workspace.revealLeaf(this.app.workspace.getLeavesOfType(VIEW_TYPE).first());
-            },
-        });
-
-        this.addCommand({
-            id: 'dictionary-open-language-switcher',
-            name: t('Open Language Switcher'),
-            callback: () => {
-                new LanguageChooser(this.app, this).open();
             },
         });
 

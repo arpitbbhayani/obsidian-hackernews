@@ -122,7 +122,7 @@ export default class SettingsTab extends PluginSettingTab {
             .setName(t('Local Dictionary Folder'))
             .setDesc(t('Specify a Folder, where all new Notes created by the Dictionary are placed. Please note that this Folder needs to already exist.'))
             .addText(text => text
-                .setPlaceholder(t('Dictionary'))
+                .setPlaceholder(t('HackerNews'))
                 .setValue(plugin.settings.folder)
                 .onChange(async (value) => {
                     plugin.settings.folder = value;
