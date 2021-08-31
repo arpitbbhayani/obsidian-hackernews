@@ -3,7 +3,7 @@ import t from 'src/l10n/helpers';
 
 export const VIEW_TYPE = 'dictionary-view';
 export const VIEW_DISPLAY_TEXT = t('HackerNews');
-export const VIEW_ICON = 'quote-glyph';
+export const VIEW_ICON = 'hackernews';
 
 export const LANGUAGES = {
     "en_US": "English (US)",
