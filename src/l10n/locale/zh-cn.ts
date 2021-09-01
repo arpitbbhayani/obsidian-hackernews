@@ -17,7 +17,7 @@ export default {
     //settingsTab.ts
     'HackerNews Settings': '词典设置',
     'Refresh Interval': 'Refresh Interval',
-    'The time interval in seconds after which the next top story will be fetched. Default and invalid values will be considered as 60 seconds.': 'The time interval in seconds after which the next top story will be fetched. Default and invalid values will be considered as 60 seconds.',
+    'The time interval in seconds after which the next top story will be fetched. Default and invalid values will be reverted to 60 seconds.': 'The time interval in seconds after which the next top story will be fetched. Default and invalid values will be reverted to 60 seconds.',
     'Language': '语言',
     'The Language the Plugin will use to search for Definitions and Pronunciations.': '插件会根据该语言来搜索语义以及发音',
     'Synonym Suggestions': '同义词建议',

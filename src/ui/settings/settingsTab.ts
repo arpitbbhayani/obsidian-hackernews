@@ -22,12 +22,14 @@ export default class SettingsTab extends PluginSettingTab {
 
         new Setting(containerEl)
             .setName(t('Refresh Interval'))
-            .setDesc(t('The time interval in seconds after which the next top story will be fetched. Default and invalid values will be considered as 60 seconds.'))
+            .setDesc(t('The time interval in seconds after which the next top story will be fetched. Default and invalid values will be reverted to 60 seconds.'))
             .addText(text => text
                 .setPlaceholder('60')
                 .setValue(plugin.settings.defaultRefreshInterval)
                 .onChange(async (value) => {
-                    plugin.settings.defaultRefreshInterval = value;
+                    let refreshInterval = parseInt(value)
+                    if (Number.isNaN(refreshInterval) || refreshInterval <= 0) { refreshInterval = 60 }
+                    plugin.settings.defaultRefreshInterval = `${refreshInterval}`;
                     await this.save();
                 }));
         new Setting(containerEl)

@@ -10,6 +10,7 @@
   import t from "src/l10n/helpers";
 
   export let manager: APIManager;
+  export let refreshInterval: string;
 
   export let query: string = "";
   let promise: Promise<DictionaryWord>;
@@ -56,6 +57,9 @@
         <p class="hn-read">
           <a href="{ dataHN.url }" target="_blank">Read more →</a>
         </p>
+        <p class="hn-meta">
+          Refreshes every { refreshInterval } seconds.
+        </p>
       </div>
     </div>
   {/if}
@@ -71,6 +75,11 @@
     font-size: 0.75em;
     text-align: right;
     margin-top: 0.5em;
+  }
+
+  .hn-meta {
+    font-size: 0.7em;
+    color: #aaa;
   }
 
   .results {

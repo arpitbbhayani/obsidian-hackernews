@@ -19,7 +19,7 @@ export default {
     "Reset to default": "Zurücksetzen",
     'HackerNews Settings': 'Wörterbuch Einstellungen',
     'Refresh Interval': 'Refresh Interval',
-    'The time interval in seconds after which the next top story will be fetched. Default and invalid values will be considered as 60 seconds.': 'The time interval in seconds after which the next top story will be fetched. Default and invalid values will be considered as 60 seconds.',
+    'The time interval in seconds after which the next top story will be fetched. Default and invalid values will be reverted to 60 seconds.': 'The time interval in seconds after which the next top story will be fetched. Default and invalid values will be reverted to 60 seconds.',
     'Language': 'Sprache',
     'The Language the Plugin will use to search for Definitions and Pronunciations.': 'Die Sprache, welche von dieser Erweiterung verwendet wird, um nach Definitionen zu suchen.',
     'Synonym Suggestions': 'Synonym Vorschläge',

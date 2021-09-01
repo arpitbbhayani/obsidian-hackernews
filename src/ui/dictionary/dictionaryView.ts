@@ -47,6 +47,9 @@ export default class DictionaryView extends ItemView {
                 localDictionary: this.plugin.localDictionary,
             }
         });
+        this._view.$set({
+            refreshInterval: this.plugin.settings.defaultRefreshInterval,
+        });
         addEventListener('dictionary-open-language-switcher', () => {
             new LanguageChooser(this.app, this.plugin).open();
         });
