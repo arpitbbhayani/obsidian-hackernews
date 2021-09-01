@@ -3,7 +3,7 @@
 	"name": "HackerNews",
 	"version": "1.0.1",
 	"minAppVersion": "0.9.12",
-	"description": "Periodically fetches and displays top HackerNews items.",
+	"description": "Periodically fetches and displays top stories from HackerNews.",
 	"author": "Arpit Bhayani",
 	"authorUrl": "https://arpitbhayani.me",
 	"isDesktopOnly": false

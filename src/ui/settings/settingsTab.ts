@@ -1,14 +1,12 @@
-import type DictionaryPlugin from "src/main";
+import type HackerNewsPlugin from "src/main";
 
-import { App, Modal, Notice, PluginSettingTab, Setting } from "obsidian";
-import { DEFAULT_SETTINGS, LANGUAGES } from "src/_constants";
-import InfoModalComponent from './infoModal.svelte'
+import { App, PluginSettingTab, Setting } from "obsidian";
 import t from "src/l10n/helpers";
 
 export default class SettingsTab extends PluginSettingTab {
-    plugin: DictionaryPlugin;
+    plugin: HackerNewsPlugin;
 
-    constructor(app: App, plugin: DictionaryPlugin) {
+    constructor(app: App, plugin: HackerNewsPlugin) {
         super(app, plugin);
         this.plugin = plugin;
     }
@@ -43,32 +41,5 @@ export default class SettingsTab extends PluginSettingTab {
 
     private async save() {
         await this.plugin.saveSettings();
-    }
-}
-
-class InfoModal extends Modal {
-    plugin: DictionaryPlugin;
-    private _view: InfoModalComponent;
-
-    constructor(plugin: DictionaryPlugin) {
-        super(plugin.app);
-        this.plugin = plugin;
-    }
-
-    onOpen() {
-        this.contentEl.parentElement.style.padding = "10px 12px";
-        this._view = new InfoModalComponent({
-            target: this.contentEl,
-            props: {
-                synonymAPIs: this.plugin.manager.synonymProvider,
-                definitionAPIs: this.plugin.manager.definitionProvider,
-                partOfSpeechAPIs: this.plugin.manager.partOfSpeechProvider,
-            }
-        });
-    }
-
-    onClose() {
-        this._view.$destroy();
-        this.contentEl.empty();
     }
 }

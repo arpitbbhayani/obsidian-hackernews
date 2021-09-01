@@ -1,14 +1,18 @@
 {
-  "name": "obsidian-sample-plugin",
-  "version": "0.12.0",
-  "description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+  "name": "obsidian-hackernews",
+  "version": "1.0.0",
+  "description": "Periodically fetches and displays top stories from HackerNews.",
   "main": "main.js",
   "scripts": {
     "dev": "rollup --config rollup.config.js -w",
     "build": "rollup --config rollup.config.js --environment BUILD:production"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "obsidian-plugin",
+    "hackernews",
+    "obsidian"
+  ],
+  "author": "Arpit Bhayani",
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^18.0.0",
@@ -36,7 +40,6 @@
     "svelte"
   ],
   "dependencies": {
-    "match-casing": "^2.0.0",
     "obsidian": "^0.12.5"
   }
 }
