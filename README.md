@@ -1,89 +1,61 @@
-<img align="right" width="550" src="https://media.discordapp.net/attachments/796853434397360128/847198380878069771/Screen_Shot_2021-05-26_at_12.43.43_PM.png?width=736&height=676">
+<img src="https://user-images.githubusercontent.com/4745789/131798196-7946c290-b663-48ac-b7ae-bf9de27bb20c.png" alt="Obsidian HackerNews Plugin" width="400" />
 
-# Obsidian Dictionary Plugin [![GitHub tag (Latest by date)](https://img.shields.io/github/v/tag/phibr0/obsidian-dictionary)](https://github.com/phibr0/obsidian-dictionary/releases) ![GitHub all releases](https://img.shields.io/github/downloads/phibr0/obsidian-dictionary/total)
+# Obsidian HackerNews [![GitHub tag (Latest by date)](https://img.shields.io/github/v/tag/arpitbbhayani/obsidian-hackernews)](https://github.com/arpitbbhayani/obsidian-hackernews/releases) ![GitHub all releases](https://img.shields.io/github/downloads/arpitbbhayani/obsidian-hackernews/total)
 
-This Plugin adds a Dictionary to the [Obsidian](https://obsidian.md) Note-Taking tool.
+The plugin periodically fetches and displays top stories from [HackerNews](https://news.ycombinator.com/) in an [Obsidian](https://obsidian.md) pane. Some of the best stories, blogs, news, and resources are shared on [HackerNews](https://news.ycombinator.com/), and this plugin helps stay updated while using Obsidian.
 
-## Usage
+# Installation
 
-Open the *Command Palette* (default: `ctrl` + `p`), search for *Open HackerNews* and run the command. You will see that a new View appears in the right Sidebar of Obsidian. You can set your default Language in Obsidian's Settings under *Plugin Options* > *Obsidian Dictionary* > *Default Language*.
+## Through Community Plugins
 
-## Supported Languages
+> The plugin is submitted to be published as the official Community Plugin. Once the Obsidian team approves it, you can install the plugin through the following steps.
 
-The following Languages are currently supported:
+ - Open the *Command Palette* (default: `ctrl` + `p`),
+ - Search for *Open HackerNews* and run the command.
+ - You will see that a new View appears in the right Sidebar of Obsidian.
 
-| Language             | Synonym Popover | Sidebar Lookup (Offline Support) | UI Translated? |
-|:-------------------- |:---------------:|:--------------:|:-----------:|
-| English (US)         |        🗸        |       🗸  (🗸)       |🗸|
-| English (UK)         |                 |       🗸 (🗸)       ||
-| Hindi                |                 |       🗸        ||
-| Spanish              |        🗸        |       🗸        ||
-| French               |        🗸        |       🗸        ||
-| Japanese             |                 |       🗸        ||
-| Russian              |                 |       🗸        ||
-| German               |        🗸        |       🗸        |🗸|
-| Italian              |        🗸        |       🗸        ||
-| Korean               |                 |       🗸        ||
-| Brazilian Portuguese |                 |       🗸        ||
-| Arabic               |                 |       🗸        ||
-| Turkish              |                 |       🗸        | |
-| Chinese | | 🗸 (🗸) | 🗸 |
 
-## Offline Dictionary
+## Manual Install
 
-As of Release 2.13.0 this Plugin has experimental offline Support for English and Chinese. The offline Dictionary is pretty big (about 35 megabytes), which is why it's not bundled with this Plugin by default. It will download the neccessary files **when you are using it for the first time**. That means your first look-up still requires an internet connection.
+You can also install this plugin manually through the following steps
+ - Create the folder `obsidian-hackernews` under the path `.obsidian/plugins`
+ - Download `main.js` and `manifest.json` from the the [latest release](https://github.com/arpitbbhayani/obsidian-hackernews/releases) and place them in the folder `.obsidian/plugins/obsidian-hackernews`
 
-## Privacy
+# Is this plugin for you?
 
-This Plugin relies on third-party [API's](https://en.wikipedia.org/wiki/API) to find Definitions, Synonyms, etc. You can select from a Range of API’s and choose which one to trust, the Plugin will not make requests to API’s you didn’t allow it to. To find more Information about the different API’s click the “More Info“ Button in the Settings.
+This plugin is for you, if you use [Obsidian](https://obsidian.md) and
+ - are a passionate engineer
+ - want to discover amazing articles, resources, and projects
+ - want to stay updated with the happenings in the tech world
 
-If you explicitly activate the **Advanced Synonym Search**, there will be one additional API Call to analyze the *whole* Sentence the selected Word appears in. This will make the suggested Synonyms more accurate based on the context.
 
-Even though this Plugin is fully Open-Source and thus can be looked over by anyone, the third-party API’s might not be.
+# Why I created this plugin?
+I love reading technical articles and stay updated with the latest happenings in the tech world, and I find [HackerNews](https://news.ycombinator.com/) ideal for this. I have read some of the best articles and found amazing open source libraries through it and hence have a knack for keeping a close eye on it.
 
-## How to make this Plugin better
+On Mac, I used to install [YCombinator Plugin](https://github.com/martinsirbe/ycombinator-bitbar) on [BitBar](https://xbarapp.com/), and it used to show top stories from [HackerNews](https://news.ycombinator.com/) in the top menu bar without me needing to visit the website. I was addicted to discovering, reading, and exploring top content through this plugin.
 
-### Translations
+Recently, I switched to a Windows machine and found it not having a similar utility; plus, writing a widget for Windows was a mess. When I discovered Obsidian, I found myself using it quite frequently. So I thought of creating a plugin similar to the [YCombinator Plugin](https://github.com/martinsirbe/ycombinator-bitbar) to fetch random top story from HackerNews and show it to me in the side pane.
 
-If you want to help and translate this Plugin to new languages, see [locales](https://github.com/phibr0/obsidian-dictionary/tree/master/src/l10n/locale).
+This is how this Plugin was conceptualized, and now my Obsidian workspace looks like this.
 
-### New API's
+TODO Image.
 
-This Plugin is meant to be easily extensible! If you want to add a new API for a new (or already supported) Language see: [API Manager](src/apiManager.ts).
+# Privacy
+This plugin makes calls to the following APIs to fetch the top stories from HackerNews
+ - [https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty](https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty)
+ - [https://hacker-news.firebaseio.com/v0/item/8863.json?print=pretty](https://hacker-news.firebaseio.com/v0/item/8863.json?print=pretty)
 
-You will need to create a new class for the new API, which implements [DefinitionProvider](src/api/types.ts) or [SynonymProvider](src/api/types.ts) (or both).
+The API calls are mere GET calls that do not pass any client-side information through the API to `hacker-news.firebaseio.com`.  
 
-If the Language you are working with doesn't exist yet, add it to the `LANGUAGES` in [_constants.ts](src/_constants.ts).
+# About me
 
-After that, add the API to the respective List in the [API Manager](src/apiManager.ts) and finally open a Pull Request here on GitHub.
-This will automatically make it selectable in the Settings.
+Hello, I am Arpit Bhayani - a CS Engineer, Educator, and a Polymath. I love everything around Computer Science, Programming, Mathematics, and Art. You can find me at [Twitter](https://twitter.com/arpit_bhayani), tweeting mostly about nerdy stuff.
 
-> Special Thanks to [@mgmeyers](https://github.com/mgmeyers) for already making this Plugin a lot better!
+In January 2020, I started my [newsletter](https://arpitbhayani.me/newsletter), where I write and share an essay about Distributed Systems, System Design, Programming languages internals, and deep dives on some super-clever algorithms. The newsletter currently has close to **1900+** subscribers.
 
-## Variables
+I have been running a niche [Cohort-based Course](https://arpitbhayani.me/masterclass) on System Design to help engineering become better at designing  _scalable_,  _fault-tolerant_, and  _highly available_  systems.
 
-You can edit the Note Template for your local Dictionary in the Settings. Here is a List of Variables you can use:
+You can choose to support me in everything I do by sponsoring this plugin.
 
-- `{{notice}}` → "Autogenerated by Obsidian Dictionary" (Localized)
-- `{{word}}` → The Word the File is created for
-- `{{pronunciationHeader}}` → "Pronunciations" (Localized)
-- `{{meaningHeader}}` → Same as above, but for "Meanings" (Localized)
-- `{{phoneticList}}` → A List of all phonetics the Plugin found.
-- `{{meanings}}` → Same as above, but for meanings the Plugin found.
+<a  href="https://www.buymeacoffee.com/arpitbhayani"><img  src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=arpitbhayani&button_colour=5F7FFF&font_colour=ffffff&font_family=Inter&outline_colour=000000&coffee_colour=FFDD00"></a>
 
-Localized means, that the Text changes based on Obsidians internal Language.
-
-## How to install
-
-1. Go to **Community Plugins** in your [Obsidian](https://www.obsidian.md) Settings and **disable** Safe Mode
-2. Click on **Browse** and search for “Obsidian Dictionary”
-3. Click install
-4. Toggle the Plugin on in the **Community Plugins** Tab
-
-## Support me
-
-If you find this Plugin helpful, consider supporting me:
-
-<a href="https://www.buymeacoffee.com/phibr0"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=phibr0&button_colour=5F7FFF&font_colour=ffffff&font_family=Inter&outline_colour=000000&coffee_colour=FFDD00"></a>
-
-> This Plugin relies on the [Free Dictionary API](https://dictionaryapi.dev/) by [meetDeveloper](https://github.com/meetDeveloper). He is providing this API to the public for free and needs help from the community. [**More Information**](https://github.com/meetDeveloper/freeDictionaryAPI#important-note)
