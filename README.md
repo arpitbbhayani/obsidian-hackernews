@@ -52,7 +52,7 @@ The API calls are mere GET calls that do not pass any client-side information th
 
 # About me
 
-Hello, I am Arpit Bhayani - a CS Engineer, Educator, and a Polymath. I love everything around Computer Science, Programming, Mathematics, and Art. You can find me on [Twitter](https://twitter.com/arpit_bhayani), tweeting mostly about nerdy stuff.
+Hello, I am [Arpit Bhayani](https://arpitbhayani.me/) - a CS Engineer, Educator, and a Polymath. I love everything around Computer Science, Programming, Mathematics, and Art. You can find me on [Twitter](https://twitter.com/arpit_bhayani), tweeting mostly about nerdy stuff.
 
 In January 2020, I started my [newsletter](https://arpitbhayani.me/newsletter), where I write and share an essay about Distributed Systems, System Design, Programming languages internals, and deep dives on some super-clever algorithms. The newsletter currently has close to **2000+** subscribers.
 
