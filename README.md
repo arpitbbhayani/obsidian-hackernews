@@ -8,7 +8,7 @@ The plugin periodically fetches and displays top stories from [HackerNews](https
 
 ## Through Community Plugins
 
-> The plugin is submitted to be published as the official Community Plugin. Once the Obsidian team approves it, you can install the plugin through the following steps.
+> The plugin is [submitted](https://github.com/obsidianmd/obsidian-releases/pull/464) to be published as the official Community Plugin. Once the Obsidian team approves it, you can install the plugin through the following steps.
 
  - Open the *Command Palette* (default: `ctrl` + `p`),
  - Search for *Open HackerNews* and run the command.
