@@ -29,25 +29,13 @@ export default class HackerNewsPlugin extends Plugin {
             return new HackerNewsView(leaf, this);
         });
 
-        if (this.app.workspace.getLeavesOfType(VIEW_TYPE).length == 0) {
-            await this.app.workspace.getRightLeaf(false).setViewState({
-                type: VIEW_TYPE,
-            });
-        }
-        this.app.workspace.revealLeaf(this.app.workspace.getLeavesOfType(VIEW_TYPE).first());
-
         this.addCommand({
             id: 'hackernews-open-view',
             name: t('Open HackerNews'),
-            callback: async () => {
-                if (this.app.workspace.getLeavesOfType(VIEW_TYPE).length == 0) {
-                    await this.app.workspace.getRightLeaf(false).setViewState({
-                        type: VIEW_TYPE,
-                    });
-                }
-                this.app.workspace.revealLeaf(this.app.workspace.getLeavesOfType(VIEW_TYPE).first());
-            },
+            callback: this.openWindowLeaf.bind(this),
         });
+
+        this.app.workspace.onLayoutReady(this.openWindowLeaf.bind(this))
 
         let refreshInterval = parseInt(this.settings.defaultRefreshInterval)
         if (Number.isNaN(refreshInterval) || refreshInterval <= 0) { refreshInterval = 60 }
@@ -73,5 +61,15 @@ export default class HackerNewsPlugin extends Plugin {
 
     async saveSettings(): Promise<void> {
         await this.saveData(this.settings);
+    }
+
+    async openWindowLeaf() {
+        if (this.app.workspace.getLeavesOfType(VIEW_TYPE).length == 0) {
+            await this.app.workspace.getRightLeaf(false).setViewState({
+                type: VIEW_TYPE,
+            });
+        }
+        this.app.workspace.revealLeaf(this.app.workspace.getLeavesOfType(VIEW_TYPE).first());
+        dispatchEvent(new Event('obsidian-hackernews-fetchTopHN'))
     }
 }
