@@ -46,7 +46,7 @@ Recently, I switched to a Windows machine and found it not having a similar util
 
 This is how this Plugin was conceptualized, and now my Obsidian workspace looks like this.
 
-![Obsidian Screenshot for HackerNews Plugin](https://user-images.githubusercontent.com/4745789/131810991-4738751e-8a4c-4777-83ad-e30756bb01aa.PNG)
+![Obsidian Screenshot for HackerNews Plugin](https://user-images.githubusercontent.com/4745789/131978712-718691dd-57bb-48ea-bd4b-d8e182ec6c16.PNG)
 
 # Privacy
 This plugin makes calls to the following APIs to fetch the top stories from HackerNews
