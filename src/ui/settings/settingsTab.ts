@@ -31,6 +31,16 @@ export default class SettingsTab extends PluginSettingTab {
                     await this.save();
                 }));
         new Setting(containerEl)
+            .setName(t('Stories Folder'))
+            .setDesc(t('The folder that holds the saved HackerNews stories. The folder will be created if it does not exist.'))
+            .addText(text => text
+                .setPlaceholder('stories folder')
+                .setValue(plugin.settings.storiesFolder)
+                .onChange(async (value) => {
+                    plugin.settings.storiesFolder = value;
+                    await this.save();
+                }));
+        new Setting(containerEl)
             .setName(t('Donate'))
             .setDesc(t('If you found this plugin helpful, consider donating to support continued development.'))
             .setClass("extra")

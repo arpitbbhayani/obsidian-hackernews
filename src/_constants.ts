@@ -15,4 +15,5 @@ export const RFC = {
 
 export const DEFAULT_SETTINGS: HackerNewsSettings = {
     defaultRefreshInterval: "60",
+    storiesFolder: "HackerNews",
 }

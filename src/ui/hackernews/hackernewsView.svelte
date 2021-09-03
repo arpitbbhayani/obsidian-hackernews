@@ -13,6 +13,11 @@
     dataHN = await manager.requestTopHN();
   }
 
+  export async function saveHNItem() {
+    console.log(`saving story ${dataHN.title}`);
+    await manager.saveHNItem(dataHN);
+  }
+
   addEventListener("obsidian-hackernews-fetchTopHN", fetchTopHN);
 
   onDestroy(() => {
@@ -27,7 +32,9 @@
         <a href="{ dataHN.url }" target="_blank" class="hn-link">{ dataHN.title }</a>
         <br />
         <p class="hn-read">
-          <a href="{ dataHN.url }" target="_blank">Read more →</a>
+          <a href="/" on:click={saveHNItem}>Save</a>
+          •
+          <a href="{ dataHN.url }" target="_blank">Read now</a>
         </p>
         <p class="hn-meta">
           Refreshes every { refreshInterval } seconds.

@@ -8,6 +8,8 @@ export default {
     'HackerNews Settings': 'HackerNews Settings',
     'Refresh Interval': 'Refresh Interval',
     'The time interval in seconds after which the next top story will be fetched. Default and invalid values will be reverted to 60 seconds.': 'The time interval in seconds after which the next top story will be fetched. Default and invalid values will be reverted to 60 seconds.',
+    'Stories Folder': 'Stories Folder',
+    'The folder that holds the saved HackerNews stories. The folder will be created if it does not exist.': 'The folder that holds the saved HackerNews stories. The folder will be created if it does not exist.',
     'Donate': 'Donate',
     'If you found this plugin helpful, consider donating to support continued development.': 'If you found this plugin helpful, consider donating to support continued development.',
 };
