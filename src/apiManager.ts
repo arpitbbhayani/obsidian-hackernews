@@ -40,7 +40,6 @@ export default class APIManager {
         }
 
         stat = await this.plugin.app.vault.adapter.stat(filePath)
-        console.log(stat)
         if (!stat) {
             await this.plugin.app.vault.create(filePath, `[${hnItem.title}](${hnItem.url})`)
             new Notice(`Story saved: ${hnItem.title}`)
