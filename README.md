@@ -4,6 +4,11 @@
 
 The plugin periodically fetches and displays top stories from [HackerNews](https://news.ycombinator.com/) in an [Obsidian](https://obsidian.md) pane. Some of the best stories, blogs, news, and resources are shared on [HackerNews](https://news.ycombinator.com/), and this plugin helps stay updated while using Obsidian.
 
+# Features
+
+ - Periodically fetches a random top story from HackerNews.
+ - You can save the story as a note allowing you to revisit it again.
+
 # Installation
 
 ## Through Community Plugins
