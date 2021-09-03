@@ -18,12 +18,11 @@ export const DEFAULT_SETTINGS: HackerNewsSettings = {
     storiesFolder: "HackerNews",
     storyTemplate: `---
 date: {{date}}
-source: [{{url}}]({{url}})
+source: {{url}}
 
 ---
 
 # {{title}}
----
 
 > notes from [{{title}}]({{url}})
 `

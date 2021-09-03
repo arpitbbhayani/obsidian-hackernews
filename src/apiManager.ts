@@ -1,5 +1,6 @@
 import { Notice } from 'obsidian';
 import path from 'path';
+import moment from 'moment';
 import type {
     HNItem,
 } from "src/integrations/types";
@@ -41,8 +42,15 @@ export default class APIManager {
 
         stat = await this.plugin.app.vault.adapter.stat(filePath)
         if (!stat) {
-            await this.plugin.app.vault.create(filePath, `[${hnItem.title}](${hnItem.url})`)
+            await this.plugin.app.vault.create(filePath, this.getStoryFileContent(hnItem))
             new Notice(`Story saved: ${hnItem.title}`)
         }
+    }
+
+    getStoryFileContent(hnItem: HNItem): string {
+        let data = this.plugin.settings.storyTemplate;
+        return data.replace(/{{title}}/g, hnItem.title)
+            .replace(/{{url}}/g, hnItem.url)
+            .replace(/{{date}}/g, moment().format('LLLL'))
     }
 }
