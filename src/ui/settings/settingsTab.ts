@@ -41,6 +41,16 @@ export default class SettingsTab extends PluginSettingTab {
                     await this.save();
                 }));
         new Setting(containerEl)
+            .setName(t('Story Template'))
+            .setDesc(t('Specify how the HackerNews story is saved; available attributes: title, url, date.'))
+            .addTextArea(text => text
+                .setPlaceholder('stories folder')
+                .setValue(plugin.settings.storyTemplate)
+                .onChange(async (value) => {
+                    plugin.settings.storyTemplate = value;
+                    await this.save();
+                }));
+        new Setting(containerEl)
             .setName(t('Donate'))
             .setDesc(t('If you found this plugin helpful, consider donating to support continued development.'))
             .setClass("extra")
