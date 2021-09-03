@@ -34,14 +34,15 @@ export default class APIManager {
         const dir = this.plugin.settings.storiesFolder
         const filePath = path.join(dir, `${hnItem.title}.md`)
 
-        let stat = this.plugin.app.vault.adapter.stat(dir)
+        let stat = await this.plugin.app.vault.adapter.stat(dir)
         if (!stat) {
-            this.plugin.app.vault.createFolder(dir)
+            await this.plugin.app.vault.createFolder(dir)
         }
 
-        stat = this.plugin.app.vault.adapter.stat(filePath)
+        stat = await this.plugin.app.vault.adapter.stat(filePath)
+        console.log(stat)
         if (!stat) {
-            this.plugin.app.vault.create(filePath, `[${hnItem.title}](${hnItem.url})`)
+            await this.plugin.app.vault.create(filePath, `[${hnItem.title}](${hnItem.url})`)
             new Notice(`Story saved: ${hnItem.title}`)
         }
     }
