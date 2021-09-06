@@ -1,6 +1,4 @@
-import { Notice } from 'obsidian';
-import path from 'path';
-import moment from 'moment';
+import { Notice, moment, normalizePath } from 'obsidian';
 import type {
     HNItem,
 } from "src/integrations/types";
@@ -33,16 +31,18 @@ export default class APIManager {
 
     public async saveHNItem(hnItem: HNItem) {
         const dir = this.plugin.settings.storiesFolder
-        const filePath = path.join(dir, `${hnItem.title}.md`)
+        const filePath = normalizePath([dir, `${hnItem.title}.md`].join('/'))
 
-        let stat = await this.plugin.app.vault.adapter.stat(dir)
+        const vault = this.plugin.app.vault;
+
+        let stat = await vault.adapter.stat(dir)
         if (!stat) {
-            await this.plugin.app.vault.createFolder(dir)
+            await vault.createFolder(dir)
         }
 
-        stat = await this.plugin.app.vault.adapter.stat(filePath)
+        stat = await vault.adapter.stat(filePath)
         if (!stat) {
-            await this.plugin.app.vault.create(filePath, this.getStoryFileContent(hnItem))
+            await vault.create(filePath, this.getStoryFileContent(hnItem))
             new Notice(`Story saved: ${hnItem.title}`)
         }
     }

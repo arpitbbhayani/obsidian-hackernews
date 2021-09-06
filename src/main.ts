@@ -17,7 +17,7 @@ export default class HackerNewsPlugin extends Plugin {
     async onload(): Promise<void> {
         console.log('loading hackernews');
 
-        await Promise.all([this.loadSettings()]);
+        await this.loadSettings();
 
         addIcons();
 
@@ -50,8 +50,8 @@ export default class HackerNewsPlugin extends Plugin {
 
     onunload(): void {
         console.log('unloading hackernews');
-        if (this.app.workspace.getLeavesOfType(VIEW_TYPE).length) {
-            this.app.workspace.getLeavesOfType(VIEW_TYPE)[0].detach();
+        for(let leaf of this.app.workspace.getLeavesOfType(VIEW_TYPE)) {
+            leaf.detach()
         }
     }
 
