@@ -1,4 +1,6 @@
-import { Notice, moment, normalizePath } from 'obsidian';
+import { Notice, normalizePath } from 'obsidian';
+const { moment } = require('obsidian');
+
 import type {
     HNItem,
 } from "src/integrations/types";
@@ -31,7 +33,8 @@ export default class APIManager {
 
     public async saveHNItem(hnItem: HNItem) {
         const dir = this.plugin.settings.storiesFolder
-        const filePath = normalizePath([dir, `${hnItem.title}.md`].join('/'))
+        const title = hnItem.title.replace(/[\/\\\:]/g, ' ')
+        const filePath = normalizePath([dir, `${title}.md`].join('/'))
 
         const vault = this.plugin.app.vault;
 
@@ -44,6 +47,8 @@ export default class APIManager {
         if (!stat) {
             await vault.create(filePath, this.getStoryFileContent(hnItem))
             new Notice(`Story saved: ${hnItem.title}`)
+        } else {
+            new Notice("Story already saved")
         }
     }
 
