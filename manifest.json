@@ -1,7 +1,7 @@
 {
 	"id": "obsidian-hackernews",
 	"name": "HackerNews",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"minAppVersion": "0.9.12",
 	"description": "Periodically fetches and displays top stories from HackerNews.",
 	"author": "Arpit Bhayani",
