@@ -11,6 +11,17 @@ The plugin periodically fetches and displays top stories from [HackerNews](https
 
 # Installation
 
+## Through Community Plugin
+
+ - Open *Settings* (default: `ctrl` + `,`),
+ - Open *Community Plugins* from the left sidebar,
+ - On the right pane, click *Browse*, this will open up all the Community Plugins
+ - Search for *HackerNews*
+ - Install the Plugin by clicking *Install*
+ - Enable to Plugin by clicking *Enable*
+
+## Enabling the plugin
+
  - Open the *Command Palette* (default: `ctrl` + `p`),
  - Search for *Open HackerNews* and run the command.
  - You will see that a new View appears in the right Sidebar of Obsidian.
