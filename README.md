@@ -66,3 +66,11 @@ You can choose to support me in everything I do by sponsoring this plugin.
 
 <a  href="https://www.buymeacoffee.com/arpitbhayani"><img  src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=arpitbhayani&button_colour=5F7FFF&font_colour=ffffff&font_family=Inter&outline_colour=000000&coffee_colour=FFDD00"></a>
 
+# Local Plugin Development
+
+ - Clone the repository in `.obsidian/plugins` directory
+ - In the cloned directory run, `npm install`
+ - Run `npm run dev` to start a dev server watching the source files
+ - Restart the Obsidian and now you would see `HackerNews` plugins under Installed Community Plugins
+ - Switch on to enable the plugin
+ - When you are actively developing and want to see your changes, just turn off and on the Plugin
