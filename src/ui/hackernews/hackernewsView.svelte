@@ -6,16 +6,16 @@
   export let manager: APIManager;
   export let refreshInterval: string;
 
-  let dataHN: HNItem;
+  let dataHN: Array<HNItem>;
 
   export async function fetchTopHN() {
-    console.log('fetching top story from HackerNews');
+    console.log('fetching top stories from HackerNews');
     dataHN = await manager.requestTopHN();
   }
 
-  export async function saveHNItem() {
-    console.log(`saving story ${dataHN.title}`);
-    await manager.saveHNItem(dataHN);
+  export async function saveHNItem(itemHN: HNItem) {
+    console.log(`saving story ${itemHN.title}`);
+    await manager.saveHNItem(itemHN);
   }
 
   addEventListener("obsidian-hackernews-fetchTopHN", fetchTopHN);
@@ -26,20 +26,22 @@
 </script>
 
 <div class="main">
-  {#if dataHN}
+  <p class="hn-meta">
+    Refreshes every { refreshInterval } seconds.
+  </p>
+  {#if dataHN }
     <div class="results">
-      <div class="container">
-        <a href="{ dataHN.url }" target="_blank" class="hn-link">{ dataHN.title }</a>
-        <br />
-        <p class="hn-read">
-          <a href="/" on:click={saveHNItem}>Save</a>
-          •
-          <a href="{ dataHN.url }" target="_blank">Read now</a>
-        </p>
-        <p class="hn-meta">
-          Refreshes every { refreshInterval } seconds.
-        </p>
-      </div>
+      {#each dataHN as itemHN }
+        <div class="container">
+          <a href="{ itemHN.url }" target="_blank" class="hn-link">{ itemHN.title }</a>
+          <br />
+          <p class="hn-read">
+            <a href="/" on:click={saveHNItem(itemHN)}>Save</a>
+            •
+            <a href="{ itemHN.url }" target="_blank">Read now</a>
+          </p>
+        </div>
+      {/each}
     </div>
   {/if}
 </div>

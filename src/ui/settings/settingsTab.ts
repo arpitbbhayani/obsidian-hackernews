@@ -51,6 +51,18 @@ export default class SettingsTab extends PluginSettingTab {
                     await this.save();
                 }));
         new Setting(containerEl)
+            .setName(t('Number of Stories'))
+            .setDesc(t('The number of top stories to fetch from HackerNews. Default and invalid values will be reverted to 10.'))
+            .addText(text => text
+                .setPlaceholder('10')
+                .setValue(plugin.settings.defaultNumStories)
+                .onChange(async (value) => {
+                    let numStories = parseInt(value)
+                    if (Number.isNaN(numStories) || numStories <= 0) { numStories = 10 }
+                    plugin.settings.defaultNumStories = `${numStories}`;
+                    await this.save();
+                }));
+        new Setting(containerEl)
             .setName(t('Donate'))
             .setDesc(t('If you found this plugin helpful, consider donating to support continued development.'))
             .setClass("extra")

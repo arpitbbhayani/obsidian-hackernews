@@ -14,7 +14,7 @@ export default class APIManager {
         this.plugin = plugin;
     }
 
-    public async requestTopHN(): Promise<HNItem> {
+    public async requestTopHN(): Promise<Array<HNItem>> {
         let itemIds: Array<Number>;
         try {
             const url = "https://hacker-news.firebaseio.com/v0/topstories.json";
@@ -24,11 +24,16 @@ export default class APIManager {
             return Promise.reject(error);
         }
 
-        const itemId = itemIds[Math.floor(Math.random() * itemIds.slice(0, 25).length)]
-        const itemResponse = await fetch(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json?print=pretty`);
-        const hnItem = (await itemResponse.json()) as HNItem
 
-        return hnItem;
+        let hnItems: Array<HNItem> = [];
+        let numStories = parseInt(this.plugin.settings.defaultNumStories);
+        for (let i = 0; i < numStories; i++) {
+            var itemId = itemIds[Math.floor(Math.random() * itemIds.slice(0, 25).length)]
+            const itemResponse = await fetch(`https://hacker-news.firebaseio.com/v0/item/${itemId}.json?print=pretty`);
+            hnItems.push((await itemResponse.json()) as HNItem);
+        }
+
+        return hnItems;
     }
 
     public async saveHNItem(hnItem: HNItem) {

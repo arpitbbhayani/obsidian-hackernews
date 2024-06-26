@@ -40,6 +40,7 @@ export default class HackerNewsView extends ItemView {
         });
         this._view.$set({
             refreshInterval: this.plugin.settings.defaultRefreshInterval,
+            numStories: this.plugin.settings.defaultNumStories,
         });
         return super.onOpen();
     }
